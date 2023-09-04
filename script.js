@@ -6,6 +6,9 @@ const casillas = [
     document.getElementById("casilla-9")];
 
 let player = "x";
+let gamePause = false;
+reset();
+
 
 function tooglePlayer(){
     if(player=="x"){
@@ -14,6 +17,7 @@ function tooglePlayer(){
     else{
         player = "x";
     }
+    document.getElementById("player").innerHTML = "Turno del Jugador: "+player;
 }
 
 function isCellEmpty(cell){
@@ -23,10 +27,16 @@ function isCellEmpty(cell){
     return false;
 }
 
-for(let i = 0; i<casillas.length; i++){
-    let casilla = casillas[i];
-    casilla.addEventListener("click", casillaClickeada);
+function reset(){
+    for(let i = 0; i<casillas.length; i++){
+        let casilla = casillas[i];
+        casilla.addEventListener("click", casillaClickeada);
+    }
+
+    player = "x";
+    gamePause = false;
 }
+    
 
 function casillaClickeada(){
     if(isCellEmpty(this)){
