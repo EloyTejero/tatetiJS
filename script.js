@@ -17,7 +17,7 @@ function tooglePlayer(){
 }
 
 function isCellEmpty(cell){
-    if(cell.innerText != ""){
+    if(cell.innerText == ""){
         return true;
     }
     return false;
@@ -29,7 +29,7 @@ for(let i = 0; i<casillas.length; i++){
 }
 
 function casillaClickeada(){
-    if(!isCellEmpty(this)){
+    if(isCellEmpty(this)){
         this.innerHTML = player;
         tooglePlayer();
     }
