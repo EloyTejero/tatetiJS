@@ -34,7 +34,7 @@ function reset() {
     inicializarCasillas();
     vaciarCasillas();
     tooglePlayer();
-    if(player!="x"){
+    if (player != "x") {
         tooglePlayer();
     }
     gamePause = false;
@@ -56,7 +56,7 @@ function inicializarCasillas() {
     }
 }
 
-function vaciarCasillas(){
+function vaciarCasillas() {
     for (let i = 0; i < casillas.length; i++) {
         let casilla = casillas[i];
         casilla.innerHTML = "";
@@ -80,7 +80,7 @@ function juegoGanado() {
         console.log("ganador:" + i);
         for (j of i) {
             console.log("casilla: " + casillas[j].innerText);
-            if (aux == casillas[j].innerText && aux!="") {
+            if (aux == casillas[j].innerText && aux != "") {
                 contador++;
             }
         }
@@ -91,28 +91,28 @@ function juegoGanado() {
     return false;
 }
 
-function ganar(){
+function ganar() {
     pauseGame();
     tooglePlayer();
-    document.getElementById("player").innerHTML = "Ha ganado el jugador "+player+" Presione reset para volver a jugar";
+    document.getElementById("player").innerHTML = "Ha ganado el jugador " + player + " Presione reset para volver a jugar";
 }
 
-function juegoEmpatado(){
+function juegoEmpatado() {
     let contador = 0;
 
-    for(let i = 0; i<casillas.length; i++){
+    for (let i = 0; i < casillas.length; i++) {
         let texto = casillas[i].innerText;
-        if(texto != ""){
+        if (texto != "") {
             contador++;
         }
     }
-    if(contador==9){
+    if (contador == 9) {
         return true;
     }
     return false;
 }
 
-function empatar(){
+function empatar() {
     console.log("empatado");
     pauseGame();
     document.getElementById("player").innerHTML = "El juego ha EMPATADO presione reset para volver a jugar";
@@ -122,7 +122,7 @@ function main() {
     if (juegoGanado()) {
         ganar();
     }
-    if(juegoEmpatado()){
+    if (juegoEmpatado()) {
         empatar();
     }
 }
