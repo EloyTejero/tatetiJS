@@ -37,11 +37,9 @@ function reset() {
     if (player != "x") {
         tooglePlayer();
     }
-    gamePause = false;
 }
 
 function pauseGame() {
-    gamePause = true;
 
     for (let i = 0; i < casillas.length; i++) {
         let casilla = casillas[i];
@@ -76,9 +74,7 @@ function juegoGanado() {
     for (i of tateti) {
         let contador = 0;
         let aux = casillas[i[0]].innerText;
-        console.log("ganador:" + i);
         for (j of i) {
-            console.log("casilla: " + casillas[j].innerText);
             if (aux == casillas[j].innerText && aux != "") {
                 contador++;
             }

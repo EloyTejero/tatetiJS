@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap');
 
 body {
+    user-select: none;
     background-color: black;
     margin: 0;
 }
@@ -42,6 +44,28 @@ body {
     font-size: 17px;
 }
 
+.info{
+    position: absolute;
+    top: 320px;
+    right: 100px;
+    width: 185px;
+    padding: 10px;
+    background-color: #84abd8;
+    border-radius: 8%;
+    border: 2px solid rgb(115, 176, 230);
+    box-shadow:#2871c5 4px 4px 0 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 570;
+    font-family: 'Outfit', sans-serif;
+    color: #161536;
+}
+
+.info p{
+    margin: 0;
+}
 
 .reset {
     background-color: #fbeee0;
