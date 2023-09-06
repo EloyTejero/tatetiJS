@@ -70,8 +70,7 @@ function casillaClickeada() {
         main();
     }
     console.log(player);
-} //añadir control para cuando ya hay un valor en la casilla y que cuando se gane ya no se pueda tocar
-//osea aunque quede una casilla vacia no se pueda escribir en esta
+} 
 
 function juegoGanado() {
     for (i of tateti) {
@@ -121,8 +120,10 @@ function empatar() {
 function main() {
     if (juegoGanado()) {
         ganar();
+        return;
     }
     if (juegoEmpatado()) {
         empatar();
+        return;
     }
 }
