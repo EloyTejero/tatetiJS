@@ -51,6 +51,24 @@ function inicializarCasillas() {
     for (let i = 0; i < casillas.length; i++) {
         let casilla = casillas[i];
         casilla.addEventListener("click", casillaClickeada);
+        casilla.addEventListener("mouseenter", pintarHover);
+        casilla.addEventListener("mouseleave", pintarCasillaNormal)
+    }
+}
+
+function pintarHover(){
+    this.style.backgroundColor = "rgb(0, 161, 161)";
+}
+
+function pintarCasillaNormal(){
+    this.style.backgroundColor = "rgb(0, 255, 255)";
+}
+
+function pintarCasillasGanadas(casillas){
+    for(i of casillas){
+        i.style.backgroundColor = "rgb(184, 249, 229)";
+        i.removeEventListener("mouseenter", pintarHover);
+        i.removeEventListener("mouseleave", pintarCasillaNormal);
     }
 }
 
@@ -58,6 +76,7 @@ function vaciarCasillas() {
     for (let i = 0; i < casillas.length; i++) {
         let casilla = casillas[i];
         casilla.innerHTML = "";
+        casilla.style.backgroundColor = "rgb(0, 255, 255)";
     }
 }
 
@@ -74,12 +93,16 @@ function juegoGanado() {
     for (i of tateti) {
         let contador = 0;
         let aux = casillas[i[0]].innerText;
+        let casillasGanadas = [];
+
         for (j of i) {
             if (aux == casillas[j].innerText && aux != "") {
                 contador++;
+                casillasGanadas.push(casillas[j]);
             }
         }
         if (contador == 3) {
+            pintarCasillasGanadas(casillasGanadas);
             return true;
         }
     }
@@ -108,7 +131,6 @@ function juegoEmpatado() {
 }
 
 function empatar() {
-    console.log("empatado");
     pauseGame();
     document.getElementById("player").innerHTML = "El juego ha EMPATADO presione reset para volver a jugar";
 }
